@@ -245,7 +245,6 @@ com.futurice.project
 - `android:id` as the first attribute always
 - `android:layout_****` attributes at the top
 - `style` attribute at the bottom
-- Tag closer `/>` on its own line, to facilitate ordering and adding attributes.
 - Rather than hard coding `android:text`, consider using [Designtime attributes](http://tools.android.com/tips/layout-designtime-attributes) available for Android Studio.
 
 ```xml
@@ -255,8 +254,7 @@ com.futurice.project
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/name"
@@ -264,8 +262,7 @@ com.futurice.project
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:text="@string/name"
-        style="@style/FancyText"
-        />
+        style="@style/FancyText" />
 
     <include layout="@layout/reusable_part" />
 
@@ -297,8 +294,7 @@ Applied to TextViews:
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/price"
-    style="@style/ContentText"
-    />
+    style="@style/ContentText"/>
 ```
 
 You probably will need to do the same for buttons, but don't stop there yet. Go beyond and move a group of related and repeated `android:****` attributes to a common style.
@@ -387,21 +383,21 @@ Name your strings with keys that resemble namespaces, and don't be afraid of rep
 
 **Good**
 ```xml
-<string name="error.message.network">Network error</string>
-<string name="error.message.call">Call failed</string>
-<string name="error.message.map">Map loading failed</string>
+<string name="error_message_network">Network error</string>
+<string name="error_message_call">Call failed</string>
+<string name="error_message_map">Map loading failed</string>
 ```
 
 Don't write string values in all uppercase. Stick to normal text conventions (e.g., capitalize first character). If you need to display the string in all caps, then do that using for instance the attribute [`textAllCaps`](http://developer.android.com/reference/android/widget/TextView.html#attr_android:textAllCaps) on a TextView.
 
 **Bad**
 ```xml
-<string name="error.message.call">CALL FAILED</string>
+<string name="error_message_call">CALL FAILED</string>
 ```
 
 **Good**
 ```xml
-<string name="error.message.call">Call failed</string>
+<string name="error_message_call">Call failed</string>
 ```
 
 **Avoid a deep hierarchy of views.** Sometimes you might be tempted to just add yet another LinearLayout, to be able to accomplish an arrangement of views. This kind of situation may occur:
